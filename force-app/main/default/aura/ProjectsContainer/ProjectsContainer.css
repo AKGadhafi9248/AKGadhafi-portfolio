@@ -1,0 +1,55 @@
+.THIS.minimal-container {
+    padding: 2rem;
+    text-align: center;
+    background: #f8f9fa;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.THIS h1 {
+    color: #28a745;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.THIS p {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.THIS .success-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.THIS .success-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.THIS .success-item:last-child {
+    border-bottom: none;
+}
+
+.THIS .test-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.THIS .test-button:hover {
+    background: #0056b3;
+}

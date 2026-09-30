@@ -1,0 +1,55 @@
+<aura:component access="GLOBAL" implements="force:appHostable">
+
+
+    <!-- INDEX OF CURRENT SECTION -->
+    <aura:attribute name="currentIndex" type="Integer" default="0" />
+
+    <!-- FULL SECTION DATA -->
+    <aura:attribute name="sections" type="List" default="[
+        {'title':'Programming Languages',
+         'logos':['java.png','python.png']},
+
+        {'title':'Frameworks and Libraries',
+         'logos':['spring.png','react.png','express.png']},
+
+        {'title':'Databases',
+         'logos':['mongo.png','mysql.png','hdbsql.png']},
+
+        {'title':'SAP Skill Set',
+         'logos':['hana.png','abap.png']}
+    ]" />
+
+    <!-- ACTIVE DISPLAY (Aura-safe values) -->
+    <aura:attribute name="activeTitle" type="String" />
+    <aura:attribute name="activeLogos" type="List" />
+
+
+    <!-- INITIALIZE FIRST SECTION -->
+    <!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> -->
+
+
+    <!-- MAIN UI CONTAINER -->
+    <div class="cloud-container">
+
+        <!-- BACKGROUND CLOUD IMAGE -->
+        <img src="{!$Resource.cloudImg}" class="bg-cloud" />
+
+        <!-- SECTION TITLE -->
+        <h1 class="main-title">
+            {!v.activeTitle}
+        </h1>
+
+        <!-- LOGOS -->
+        <div class="logo-box fadeAnim">
+            <aura:iteration items="{!v.activeLogos}" var="lg">
+                <img src="{!$Resource.ProjectLogos + '/' + lg}" class="logo-img" />
+            </aura:iteration>
+        </div>
+
+        <!-- TOUCH BUTTON TO SWITCH SECTION -->
+        <div class="touch-box" onclick="{!c.nextSection}">
+            <img src="{!$Resource.touch}" class="touch-img" />
+        </div>
+
+    </div>
+</aura:component>

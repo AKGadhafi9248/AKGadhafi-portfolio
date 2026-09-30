@@ -1,0 +1,24 @@
+<template>
+  <section class="shuffling-container">
+    <div class="image-stack">
+      <template for:each={visibleImages} for:item="img">
+        <div key={img.id} class={img.cardClass}>
+          <!-- new wrapper for guaranteed centering -->
+          <div class="image-inner">
+            <img src={img.src} alt={img.title} />
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <div class="content-section">
+      <h2>{currentItem.title}</h2>
+      <p>{currentItem.description}</p>
+
+      <div class="nav-buttons">
+        <button class="nav-btn" onclick={prevImage} aria-label="Previous">&lt;</button>
+        <button class="nav-btn" onclick={nextImage} aria-label="Next">&gt;</button>
+      </div>
+    </div>
+  </section>
+</template>

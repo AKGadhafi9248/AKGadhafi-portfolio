@@ -1,0 +1,379 @@
+:host {
+  display: block;
+  background: linear-gradient(135deg, var(--second-bg-color), var(--bg-color));
+  padding: 3rem 1rem;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: var(--text-color);
+  transition: background 0.6s ease, color 0.6s ease;
+}
+
+/* container */
+.shuffling-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* soft glowing background for cards area */
+.shuffling-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle at center, var(--glow-color-light), transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.image-stack {
+  position: relative;
+  width: 320px;
+  height: auto;     /* ← FIX: allow natural height */
+  aspect-ratio: 3/4; /* keeps the same rectangular frame */
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* base card */
+/* .image-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;     
+  justify-content: center; 
+} */
+
+ .image-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(.22,.9,.31,1), opacity 0.5s ease, filter 0.4s ease;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  transform-origin: center bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+.image-card img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: inherit;
+  object-position: center;
+}
+/* animated border wrapper */
+.image-card.active {
+    position: relative;
+    overflow: visible;
+}
+
+.image-card.active::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 18px;
+    padding: 2px;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        var(--main-color),
+        var(--accent-color),
+        transparent
+    );
+    background-size: 300% 300%;
+    animation: borderRun 2.2s linear infinite;
+    z-index: -1;
+    filter: drop-shadow(0 0 10px var(--main-color));
+}
+
+@keyframes borderRun {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* .image-card.pos-0 {
+  transform: translateY(0) scale(1);
+}
+
+.image-card.pos-1 {
+  transform: translateY(20px) scale(0.97);
+}
+
+.image-card.pos-2 {
+  transform: translateY(40px) scale(0.94);
+}
+
+.image-card.pos-3 {
+  transform: translateY(60px) scale(0.92);
+} */
+
+/* stacked layers */
+.image-card.pos-0 {
+  z-index: 30;
+  /* transform: translateY(0) rotate(0deg) scale(1); */
+  transform: translateY(0) rotate(0deg) scale(1);
+  opacity: 1;
+}
+.image-card.pos-1 {
+  z-index: 20;
+  /* transform: translateY(-20px) rotate(-5deg) scale(0.96); */
+  transform: translateY(-20px) rotate(-5deg) scale(0.97);
+  opacity: 0.35;
+}
+.image-card.pos-2 {
+  z-index: 10;
+  /* transform: translateY(-40px) rotate(7deg) scale(0.92); */
+  transform: translateY(-40px) rotate(7deg) scale(0.94);
+  opacity: 0.2;
+}
+.image-card.pos-3 {
+  z-index: 5;
+  /* transform: translateY(-55px) rotate(-10deg) scale(0.88); */
+  opacity: 0.1;
+   transform: translateY(-55px) rotate(-10deg) scale(0.92);
+  filter: blur(0.5px);
+}
+/* Wrapper that ensures perfect centering */
+.image-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Center all images (square/rectangle/portrait) */
+.image-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+}
+
+/* .image-card.pos-1 {
+  opacity: 0.35;
+  filter: blur(1px) brightness(0.7);
+}
+
+.image-card.pos-2 {
+  opacity: 0.2;
+  filter: blur(1.5px) brightness(0.6);
+}
+
+.image-card.pos-3 {
+  opacity: 0.1;
+  filter: blur(2px) brightness(0.5);
+} */
+
+/* front glow */
+.image-card.active {
+  box-shadow: 0 12px 40px var(--glow-color-light);
+}
+
+/* right: content section */
+.content-section {
+  max-width: 440px;
+  min-width: 250px;
+  z-index: 1;
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--t-color);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.6rem;
+  transition: color 0.3s ease;
+}
+
+.content-section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight:400;
+  color: var(--p-color);
+  margin-bottom: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+/* navigation buttons */
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: var(--main-color);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.nav-btn:hover {
+  background: var(--accent-color);
+  transform: translateY(-3px) scale(1.05);
+}
+/* ---------- CORE: ensure the card and inner wrapper center content ---------- */
+.image-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(.22,.9,.31,1), opacity 0.5s ease, filter 0.4s ease;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  transform-origin: center bottom;
+
+  /* IMPORTANT: use flexbox and allow children to shrink */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0; /* prevents flex overflow issues in some engines */
+}
+
+/* New inner wrapper - guarantees perfect centering */
+.image-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0; /* critical for correct vertical centering inside flex containers */
+  padding: 8px; /* small breathing room so corners and border show */
+  box-sizing: border-box;
+}
+
+/* Image sizing rules: keep aspect ratio, never crop, always centered */
+.image-inner img {
+  width: auto;              /* let aspect ratio decide */
+  height: auto;             /* let aspect ratio decide */
+  max-width: 100%;          /* never overflow horizontally */
+  max-height: 100%;         /* never overflow vertically */
+  object-fit: contain;      /* always show the whole image */
+  object-position: center center; /* force perfect centering */
+  display: block;
+  margin: 0 auto;
+  border-radius: inherit;
+}
+
+/* Slight adjustments for the active card so animated border keeps space */
+.image-card.active {
+  z-index: 30;
+  /* ensure the ::after running border (if used) has space */
+  transform: translateY(0) rotate(0deg) scale(1);
+}
+
+/* ---------- Mobile: make stack smaller and reduce rotations so content stays centered ---------- */
+
+/* responsive design */
+@media (max-width: 768px) {
+  :host {
+    padding: 2.5rem 1rem;
+  }
+
+  .shuffling-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .image-stack {
+    width: 270px;
+    height: 320px;
+  }
+  .content-section {
+    margin-top: 1.5rem;
+  }
+  .content-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .content-section p {
+    font-size: 1rem;
+  }
+
+  .nav-buttons {
+    justify-content: center;
+  }
+}
+/* ---------- MOBILE FIX: prevent overflow ---------- */
+
+:host {
+    overflow: hidden; /* Prevent images from going outside */
+}
+
+/* Reduce image stack size on small screens */
+@media (max-width: 500px) {
+/* 
+  .shuffling-container {
+    padding: 0 10px;  
+    overflow: hidden;
+  }
+
+  .image-stack {
+    width: 220px !important;
+    height: 260px !important;
+  } */
+   .content-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .content-section p {
+    font-size: 0.8rem;
+  }
+    :host {
+    overflow: hidden;
+  }
+
+  .shuffling-container {
+    padding: 0 12px;
+    gap: 1.2rem;
+  }
+
+  .image-stack {
+    width: 220px !important;
+    height: 260px !important;
+    margin: 0 auto;
+  }
+  .nav-buttons { justify-content: center; }
+  /* reduce rotation and Y-shift so cards stay inside */
+  /* .image-card.pos-1 {
+    transform: translateY(-10px) rotate(-3deg) scale(0.96);
+  }
+  .image-card.pos-2 {
+    transform: translateY(-20px) rotate(3deg) scale(0.93);
+  }
+  .image-card.pos-3 {
+    transform: translateY(-30px) rotate(-5deg) scale(0.90);
+  } */
+ .image-card.pos-0 { transform: translateY(0) scale(1); }
+  .image-card.pos-1 { transform: translateY(-10px) rotate(-3deg) scale(0.97); }
+  .image-card.pos-2 { transform: translateY(-20px) rotate(3deg) scale(0.94); }
+  .image-card.pos-3 { transform: translateY(-32px) rotate(-5deg) scale(0.92); }
+
+}

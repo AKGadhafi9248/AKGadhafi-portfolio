@@ -1,0 +1,197 @@
+/* EXPERIENCE SECTION BASE LAYOUT */
+.experience-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    z-index: 1; /* content always on top */
+}
+
+/* DARK OVERLAY ABOVE IMAGE */
+.experience-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Stronger overlay for readability */
+    background: rgba(0, 0, 0, 0.55);
+}
+.experience-content h2{
+    text-align: center;
+}
+/* CONTENT ABOVE OVERLAY */
+.experience-content {
+    position: relative;
+    z-index: 2;
+    color: var(--iam-color) !important;
+    font-weight: 700; /* ALL text bold */
+}
+
+/* MAIN HEADER */
+.section-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+
+    background: linear-gradient(
+        90deg,
+        var(--grad-strong-purple-1),
+        var(--grad-strong-purple-2)
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* EXPERIENCE BLOCKS */
+.exp-block {
+    background: rgba(255, 255, 255, 0.08); 
+    padding: 20px;
+    border-radius: 16px;
+    transition: all 0.35s ease-in-out;
+    backdrop-filter: blur(4px);
+}
+
+.exp-block:hover {
+    transform: translateY(-6px) scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+.exp-block:hover .company,
+.exp-block:hover .value{
+    color:var(--exp-color);
+}
+/* Make the text brighter on hover */
+
+.exp-block:hover .label,
+.exp-block:hover .desc {
+    color: #ffffff;
+}
+:host(.dark-mode) .exp-block {
+    background: rgba(0, 0, 0, 0.35);
+    border-left: 4px solid var(--accent-color);
+}
+
+/* SUB-HEADERS */
+.exp-block h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+    color: var(--text-primary-light);
+}
+
+/* COMPANY NAME */
+.company {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--grad-strong-purple-1);
+}
+
+/* LABELS */
+.label {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-top: 10px;
+    color: #fff;
+}
+
+/* VALUES */
+.value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--grad-strong-orange-2);
+    margin-bottom: 5px;
+}
+
+/* DESCRIPTION */
+.desc {
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #fff;
+}
+
+/* -------------------------- */
+/* RESPONSIVE MOBILE DESIGN   */
+/* -------------------------- */
+
+@media (max-width: 768px) {
+    .exp-block:hover {
+        transform: none;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.10);
+    }
+    .exp-block:hover {
+    transform: translateY(-6px) scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+    .experience-section {
+        padding: 40px 15px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .exp-block {
+        padding: 20px;
+        margin-bottom: 35px;
+    }
+
+    .company {
+        font-size: 1.2rem;
+    }
+
+    .label, .value, .desc {
+        font-size: 0.9rem;
+    }
+}
+/* EXPERIENCE SECTION - MOBILE EXTRA SMALL DEVICES */
+@media (max-width: 450px) {
+    .experience-section {
+        padding: 30px 10px;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+        margin-bottom: 30px;
+    }
+
+    .exp-block {
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+    }
+
+    .exp-block:hover {
+        transform: none;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .exp-block h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .company {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .label, .value, .desc {
+        font-size: 0.8rem;
+    }
+
+    .desc {
+        line-height: 1.4;
+    }
+}

@@ -1,0 +1,19 @@
+<template>
+    <div class="test-box">
+        <h1>✅ Test LWC is Loaded</h1>
+        <button type="button" data-target="home" onclick={scrollToSection}>Home</button>
+        <button type="button" data-target="intro" onclick={scrollToSection}>Intro</button>
+
+    </div>
+
+    <!-- Big gap to test scrolling -->
+    <!--  -->
+    <!-- Section to scroll into view -->
+    <section id="scrollSection" data-section="home">
+        <h2>Home</h2>
+    </section>
+    <!-- <div style="height: 800px;"></div> -->
+    <section id="scrollSection2" data-section="intro">
+        <h2>Intro</h2>
+    </section>
+</template>

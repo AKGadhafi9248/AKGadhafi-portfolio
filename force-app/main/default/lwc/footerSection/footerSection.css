@@ -1,0 +1,310 @@
+:host {
+  display: block;
+  --footer-bg: #0b1020;
+  --footer-top-bg: #0f1724;
+  --text: #e6eef6;
+  --muted: rgba(230,238,246,0.8);
+  --main: var(--main-color, #8b5cf6);
+}
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 1rem;
+    background: transparent;
+    border: 2px solid var(--main-color); /* default */
+    border-radius: 50%;
+    color: var(--main-color); /* icon color */
+    margin: 3rem 0.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2) translateY(-5px);
+    text-decoration: none;
+}
+
+/* Tooltip */
+.social-icons .tooltip {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(0) scale(0.9);
+    font-size: 12px;
+    background: #000;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icons .tooltip::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #000;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Show tooltip on hover */
+.social-icons .icon:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-4px) scale(1);
+    pointer-events: auto;
+}
+
+/* Icon hover effect */
+.social-icons .icon:hover i {
+    transform: translateY(-2px);
+}
+
+/* GitHub hover */
+.social-icons .github:hover {
+    background: #000;
+    border-color: #000;
+    color: #fff;
+}
+.social-icons .github:hover .tooltip,
+.social-icons .github:hover .tooltip::before {
+    background: #000;
+    color: #fff;
+}
+
+/* LinkedIn hover */
+.social-icons .linkedin:hover {
+    background: #0077b5;
+    border-color: #0077b5;
+    color: #fff;
+}
+.social-icons .linkedin:hover .tooltip,
+.social-icons .linkedin:hover .tooltip::before {
+    background: #0077b5;
+    color: #fff;
+}
+
+/* Instagram hover */
+.social-icons .insta:hover {
+    background: #e1306c;
+    border-color: #e1306c;
+    color: #fff;
+}
+.social-icons .insta:hover .tooltip,
+.social-icons .insta:hover .tooltip::before {
+    background: #e1306c;
+    color: #fff;
+}
+/* overall layout */
+.site-footer {
+  background: var(--footer-bg);
+  color: var(--text);
+  font-family: inherit;
+}
+
+/* Top area */
+.footer-top {
+  padding: 48px 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  align-items: start;
+  padding: 0 16px;
+}
+
+.title {
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+/* BRAND NAME UPDATE */
+.brand,
+.logo-small {
+  font-weight: 800;
+  font-size: 1.8rem;
+}
+.brand{
+    font-size:2.5rem;
+    color: #fff !important;
+    font-weight: 800;
+    cursor:pointer;
+    transition: 0.5s ease;
+    text-decoration: none;
+}
+.brand:hover{
+    transform:scale(1.1);
+}
+.brand-light,
+.logo-highlight {
+  background: linear-gradient(
+    to right,
+    var(--main),
+    var(--text),
+    var(--main),
+    var(--text)
+  );
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-gradient 3.5s linear infinite;
+}
+
+@keyframes animate-gradient {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+.muted { color: var(--muted); }
+
+.link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.link-list a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.link-list a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* Contact items */
+.contact-list { 
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-item {
+  display:flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.contact-item i {
+  font-size: 1.05rem;
+  color: var(--main);
+}
+
+/* Bottom area */
+.footer-bottom {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding: 18px 16px;
+  background: #0a0d14;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+/* SOCIAL ICONS UPDATED → GitHub, LinkedIn, Instagram same as homepage */
+.footer-socials {
+  display:flex;
+  gap:12px;
+}
+
+.fs-icon {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border: 2px solid var(--main);
+  background: transparent;
+  color: var(--main);
+  cursor:pointer;
+  transition: all .3s ease;
+}
+
+.fs-icon i {
+  font-size: 1.1rem;
+}
+
+.fs-icon:hover {
+  transform: scale(1.18) translateY(-4px);
+  color: #fff;
+}
+
+/* GitHub */
+.fs-icon.github:hover {
+  background:#000;
+  border-color:#000;
+}
+
+/* LinkedIn */
+.fs-icon.linkedin:hover {
+  background:#0077b5;
+  border-color:#0077b5;
+}
+
+/* Instagram */
+.fs-icon.insta:hover {
+  background:#e1306c;
+  border-color:#e1306c;
+}
+
+/* credit */
+.credit { color: var(--muted); font-size:0.95rem; }
+.credit a { color: var(--muted); text-decoration: underline; }
+
+/* back-to-top (fixed properly) */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 28px;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background: var(--main);
+  color:#fff;
+  border:none;
+  outline:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  cursor:pointer;
+  z-index:9999;
+  transition: .3s ease;
+}
+
+.back-to-top:hover {
+  transform: scale(1.15);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .footer-inner { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-bottom {
+    flex-direction: column;
+    text-align:center;
+  }
+}

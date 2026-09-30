@@ -1,0 +1,14 @@
+// Use .apex files to store anonymous Apex.
+// You can execute anonymous Apex in VS Code by selecting the
+//     apex text and running the command:
+//     SFDX: Execute Anonymous Apex with Currently Selected Text
+// You can also execute the entire file by running the command:
+//     SFDX: Execute Anonymous Apex with Editor Contents
+
+String result;
+try {
+    result = JourneyDataCallout.getExternalJourneyData();
+    System.debug('✅ Callout result: ' + result);
+} catch(Exception e) {
+    System.debug('❌ Error: ' + e.getMessage());
+}

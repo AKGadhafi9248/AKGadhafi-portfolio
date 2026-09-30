@@ -1,0 +1,21 @@
+<template>
+    <div class="wrapper">
+        <h1 class="title">{headerTitle}</h1>
+
+        <div class="cloud-container">
+
+            <div class="touch-center" onclick={handleTouch}>
+                Touch Here
+            </div>
+
+            <template for:each={logoSet} for:item="logo">
+                <div key={logo.id} class={logo.class}>
+                    <div class="logo">
+                        <img src={logo.src} alt={logo.title} />
+                    </div>
+                    <div class="logo-title">{logo.title}</div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

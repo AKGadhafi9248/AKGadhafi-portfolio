@@ -1,0 +1,377 @@
+.mypath-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    overflow: visible;
+    /* Background will be set via JavaScript */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Test Button */
+.test-button {
+    position: relative;
+    z-index: 1000;
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    font-weight: bold;
+}
+
+/* Centered title + story */
+.story-header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    top: 2rem;
+    margin-bottom: 4rem;
+    color: #fff;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.story-header h1 {
+    font-size: 3rem;
+    font-family: Playfair Display, serif;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--iam-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.story-text {
+    font-weight: 600;
+    font-size: 1.3rem;
+    opacity: 0.9;
+    text-align: center;
+    transition: opacity 0.4s ease;
+    font-family: Lato Regular, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-primary-light);
+    line-height: 1.6;
+}
+
+span {
+    color: #FFE83D;
+    font-weight: 300;
+}
+
+/* Timeline */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Cloud Styles */
+.cloud {
+    width: 850px;
+    max-width: 95%;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    animation: floatCloud 6s ease-in-out infinite alternate;
+    transition: transform 1s ease-in-out, box-shadow 1s ease-in-out;
+    margin: 1rem auto;
+}
+
+/* ====== TEXT INSIDE CLOUD ====== */
+.cloud-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 80%;
+    font-weight: bold;
+}
+.cloud-text .desc-line {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--text-primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.6rem;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+
+.cloud-text .small-line {
+    font-size: 1.15rem;
+    font-weight: 800;
+
+    background: linear-gradient(to right, var(--iam-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    margin-bottom: 0.5rem;
+    opacity: 1;
+}
+
+
+.cloud-text .medium-line {
+    font-size: 1.4rem;
+    font-weight: 800;
+
+    background: linear-gradient(to right, var(--grad-strong-orange-1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    margin-bottom: 0.6rem;
+    font-family: 'Outfit', sans-serif;
+}
+
+
+.cloud-text h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to right, var(--grad-strong-purple-1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+.cloud-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+
+    background: linear-gradient(90deg, var(--grad-strong-blue-1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    margin: 12px 0 18px;
+    letter-spacing: 1px;
+}
+
+/* .cloud-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(90deg, #3060FF, #4A8BFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 10px 0 20px;
+    letter-spacing: 1px;
+}
+
+.cloud-text h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to right, var(--h-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+
+
+.cloud-text .medium-line {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(to right, #FF3F00, #FF3F00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.cloud-text .small-line {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.6rem;
+    opacity: 0.9;
+    background: linear-gradient(to right, #FF3F00, #FFE83D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.cloud-text .desc-line {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    max-width: 90%;
+    margin: 0 auto;
+    opacity: 0.85;
+    line-height: 1.4rem;
+    background: linear-gradient(to right, #3060FF, #3060FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} */
+
+/* Cloud floating animation */
+@keyframes floatCloud {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px) rotate(-1deg); }
+    100% { transform: translateY(0px) rotate(1deg); }
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 768px) {
+    .mypath-section {
+        padding: 1rem;
+        min-height: auto;
+    }
+
+    .story-header {
+        top: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .story-header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .story-text {
+        font-size: 0.9rem;
+        max-width: 90%;
+        line-height: 1.5;
+    }
+
+    .timeline {
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    .cloud {
+        width: 95% !important;
+        max-width: 350px !important;
+        min-height: 200px !important;
+        padding: 1.5rem 1rem !important;
+        margin: 0.5rem auto !important;
+        background-size: 100% 100% !important;
+        border-radius: 40% !important;
+    }
+
+    .cloud-text {
+        max-width: 95% !important;
+        padding: 0.5rem;
+    }
+
+    .cloud-text h3 {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.4rem;
+        line-height: 1.3;
+        font-weight: 600;
+    }
+
+    .cloud-text .medium-line {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.3rem;
+        line-height: 1.2;
+        font-weight: 600;
+    }
+
+    .cloud-text .small-line {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.3rem;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .cloud-text .desc-line {
+        font-weight: 600;
+        font-size: 0.75rem !important;
+        line-height: 1.3 !important;
+        max-width: 95% !important;
+        margin: 0 auto;
+    }
+     .cloud h2 {
+        font-size: 1rem !important;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 0.6rem;
+        line-height: 1.3;
+        letter-spacing: 0.5px;
+    }
+}
+/* Devices up to 450px */
+@media screen and (max-width: 450px) {
+    .mypath-section {
+        padding: 0.8rem;
+        min-height: auto;
+    }
+
+    .story-header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .story-text {
+        font-size: 0.85rem;
+        max-width: 90%;
+        line-height: 1.4;
+    }
+
+    .timeline {
+        gap: 1.2rem;
+    }
+
+    .cloud {
+        width: 90% !important;
+        max-width: 300px !important;
+        min-height: 180px !important;
+        padding: 1.2rem 0.8rem !important;
+        margin: 0.5rem auto !important;
+        border-radius: 40% !important;
+        background-size: contain !important;
+    }
+
+    .cloud-text {
+        max-width: 90% !important;
+        padding: 0.4rem;
+    }
+
+    .cloud-text h3 {
+        font-size: 1.3rem !important;
+        line-height: 1.2;
+    }
+
+    .cloud-text .medium-line {
+        font-size: 0.85rem !important;
+        line-height: 1.1;
+    }
+
+    .cloud-text .small-line {
+        font-size: 0.75rem !important;
+        line-height: 1.1;
+    }
+
+    .cloud-text .desc-line {
+        font-size: 0.7rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .cloud h2 {
+        font-size: 0.9rem !important;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+}

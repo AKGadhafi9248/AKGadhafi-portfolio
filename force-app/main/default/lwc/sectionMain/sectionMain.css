@@ -1,0 +1,585 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    border: none;
+    outline:none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins',sans-serif;
+}
+/* :host {
+    --bg-color: #f3f0ff;          
+    --second-bg-color: #e5dbff;   
+    --text-color: #2b2b42;       
+    --main-color: #7c3aed;       
+    --accent-color: #c4b5fd; */   
+:host {
+--second-bg-color: #f6f5fc;   
+  --bg-color: #eceafc;         
+  --text-color: #333444;        
+  --main-color: #8b5cf6;          
+  --accent-color: #c4b5fd;      
+  --border-color: #d1d5db;   
+  --glow-color-light: rgba(139, 92, 246, 0.85);
+  --iam-color: #9c27b0;
+  --p-color:rgba(51, 52, 68, 0.8);
+  --gold-color:#8b5cf6;
+  --m-color:var(--main-color);
+  --h-color:#2B0054;
+  --title-color:var(--text-color);
+  --text-primary-dark: #0E0E2C;      /* Deep navy */
+  --text-primary-light: #000000;     /* White when needed */
+  --t-color:#2B0054;
+  --type-color:#2B0054;
+  --exp-color:#611efc;
+  /* Super contrast gradients */
+  --grad-strong-purple-1: #3C0CE8;
+  --grad-strong-purple-2: #00E5FF;
+
+  --mail-color:#FF4E00;
+  --success-color:#3C0CE8;
+
+  --grad-strong-blue-1: #003CFF;
+  --grad-strong-blue-2: #7BB2FF;
+
+  --grad-strong-orange-1: #FF4E00;
+  --grad-strong-orange-2: #FF6A00;
+
+  --grad-strong-teal-1: #00C6FF;
+  --grad-strong-teal-2: #00FF9D;
+}
+:host(.dark-mode) {
+    --second-bg-color: #ffe5fa;   
+    --bg-color: #1E1E1E;     
+    --text-color: #E0E0E0;   
+    --main-color: #20B2AA; 
+    --accent-color: #64FFDA;      
+    --border-color: #D25D5D; 
+    --glow-color-light: rgba(100, 255, 218, 0.5); 
+    --iam-color: #20b2aa;
+    --p-color:rgba(224, 224, 224, 0.8);
+    --gold-color:#64FFDA;
+    --h-color:#14B1FF;
+    --m-color:var(--main-color);
+    --title-color: #004F4A;
+    --t-color:#004F4A;
+    --type-color:#fff;
+    --exp-color:#FF4E00;
+    --mail-color:#0027a7;
+    --success-color:#016327;
+    /* --text-primary-dark: #2142FF; */
+    --text-primary-dark: #7FFF00;
+    --text-primary-light: #fff;
+
+    --grad-strong-purple-1: #ffd900;
+    --grad-strong-purple-2: #00F0FF;
+
+    /* --grad-strong-blue-1: #2257FF; */
+    --grad-strong-blue-1: #003CFF;
+    --grad-strong-blue-2: #2257FF;
+
+    /* --grad-strong-orange-1: #FF6A00; */
+    --grad-strong-orange-1: #FF4E00;
+    --grad-strong-orange-2: #7FFF00;
+
+    --grad-strong-teal-1: #34FFE2;
+    --grad-strong-teal-2: #00BFAA;
+}
+.overall-component{
+    background: var(--bg-color);
+    color: var(--text-color);
+    width: 100%;
+    min-height: 100vh; 
+}
+html{
+    font-size: 62%;
+    overflow-x:hidden;
+}
+body{
+    background-color: var(--bg-color);
+    color:var(--text-color);
+    background: 0.3s, color 0.3s;
+}
+.hidden-button {
+  display: none !important;
+}
+
+/* .header{
+    position: fixed;
+    width:100%;
+    top:0;
+    left:0;
+    padding:4rem 15%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+} */
+ .header {
+  position: sticky;
+  top: 0; /* sticks to top of its container */
+  z-index: 800;
+  padding: 2rem 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:var(--bg-color);
+  background: 0.3s, color 0.3s;
+}
+
+.menu-icon{
+    font-size: 3.5rem;
+    color: var(--main-color);
+    cursor: pointer;
+    display: none;
+}
+.logo{
+    font-size:2.5rem;
+    color: var(--text-color, #333444) !important;
+    font-weight: 800;
+    cursor:pointer;
+    transition: 0.5s ease;
+    text-decoration: none;
+}
+.logo:hover{
+    transform:scale(1.1);
+}
+span {
+  background:linear-gradient(to right,var(--main-color),var(--text-color),var(--main-color),var(--text-color),var(--main-color));
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  animation:animate-gradient 3.5s linear infinite;
+}
+.nav.desktop-nav {    
+    margin-left: 4rem;
+    font-weight: 500;
+    display: flex; /* Make sure buttons are inline */
+    padding:10px;
+    gap: 3rem; /* spacing between buttons */
+
+}
+.nav.desktop-nav button {
+    color: var(--text-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom-color 0.3s, transform 0.2s;
+    padding: 0.5rem 0; 
+}
+.nav.desktop-nav button:hover  {
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+    transform: scale(1.1);
+}
+.nav.desktop-nav button.active {
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+    transform: scale(1.1);
+}
+
+/*new*/
+.nav.desktop-nav .main-dark{
+    display:flex;
+    align-items: center;
+}
+
+.main-dark .dark-light{
+    height: 40px;
+    width:40px;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--bg-color);
+    margin: 0 5px;
+    display:flex;
+}
+.dark-light i{
+    position:absolute;
+    color:var(--main-color);
+    font-size: 24px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.dark-light i.sun{
+    opacity:0;
+    pointer-events:none;
+}
+.dark-light.active i.sun{
+    opacity:1;
+    pointer-events:auto;
+}
+.dark-light.active i.moon{
+    opacity:0;
+    pointer-events:none;
+}
+.dark-light i.moon{
+    opacity:1;
+}
+
+/* .overall-component.wrap{
+    position: fixed; 
+    z-index: 1; 
+} */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 320px;
+    height: 100%;
+    background-color: var(--bg-color);
+    padding: 20px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+}
+.menu.active {
+  left: 0;
+}
+
+.menu .logo-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebarClose {
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.nav-links {
+  list-style: none;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-links li a {
+  display: block;
+  margin-top: 20px;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.toggle-dark{
+  display: none;
+}
+
+/* Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity:0.6;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 999;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+/* Sections */
+
+/* Projects Section */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    margin: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.projects-section-main {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--second-bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-section-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 4rem 2rem;
+}
+
+.section-main-title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-main-title span {
+  color: var(--accent-color);
+}
+
+.project-aura-wrapper-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 995px) {
+  .header {
+    padding: 2rem 5%;
+    position: sticky;
+    align-items: center;
+    z-index:1000;
+  }
+  .toggle-dark {
+  display: flex;
+  align-items: center; /* ✅ vertically center both icons */
+  gap: 2.1rem;         /* space between them */
+}
+
+/* dark-light toggle icon */
+.dark-light {
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* ✅ make sure icons inside are centered */
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+.buttons {
+    gap: 0.8rem;
+  }
+
+  .gradiant-btn,
+  .gradiant-btn2 {
+    font-size: 1rem;
+    padding: 0.7rem 1.6rem;
+    min-width: 110px;
+  }
+  .nav.desktop-nav {
+    display: none;  /* hide desktop nav */
+  }
+  .menu-icon {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  /* Mobile menu links */
+.nav-links li a {
+  display: block;
+  font-size:1.4rem;
+  padding: 0.8rem 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 
+    color 0.3s ease, 
+    border-left 0.3s ease, 
+    transform 0.2s ease;
+  border-left: 3px solid transparent; /* for active effect */
+}
+
+/* Hover effect */
+.nav-links li a:hover {
+  color: var(--main-color);
+  border-left: 3px solid var(--main-color);
+  transform: scale(1.05); /* slightly smaller scale for vertical layout */
+}
+
+/* Active state */
+.nav-links li a.active {
+  color: var(--main-color);
+  border-left: 3px solid var(--main-color);
+  transform: scale(1.05);
+}
+
+  /* Projects Section Styling */
+.projects-section-main {
+    padding: 8rem 10%;
+    background: var(--bg-color);
+    min-height: 100vh;
+}
+
+.projects-section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-main-title {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.section-main-title span {
+    background: linear-gradient(to right, var(--main-color), var(--text-color), var(--main-color));
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 3.5s linear infinite;
+}
+
+/* Aura Component Wrapper Fix */
+.projects-aura-wrapper {
+    width: 100% !important;
+    min-height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--second-bg-color);
+    margin: 0 auto;
+    display: block;
+}
+
+.aura-container {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 600px;
+    display: block !important;
+}
+
+.aura-frame {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 600px;
+    border: none !important;
+    display: block !important;
+}
+
+/* Projects Section Styling */
+.projects-section-main {
+    padding: 8rem 10%;
+    background: var(--bg-color);
+    min-height: 100vh;
+    width: 100%;
+    display: block;
+}
+
+.projects-section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.section-main-title {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: var(--text-color);
+    font-weight: 700;
+    width: 100%;
+}
+  /* Optional: adjust projects cards if needed */
+  .projects-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+@media (max-width: 600px){
+  .buttons {
+    gap: 0.8rem;
+  }
+
+  .gradiant-btn,
+  .gradiant-btn2 {
+    font-size: 1rem;
+    padding: 0.7rem 1.6rem;
+    min-width: 110px;
+  }
+
+}
+
+@media (min-width: 769px) {
+    .project-card {
+        width: 40%;
+    }
+}
+
+@keyframes animate-gradient {
+  to{
+    background-position: 200%;
+  }  
+}
+/* --------------------------------------------------
+   FIX: Prevent menu icon from going outside on small screens
+-----------------------------------------------------*/
+@media (max-width: 480px) {
+
+  .header {
+    padding: 1.4rem 4%;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 1.9rem;
+  }
+
+  .toggle-dark {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+  }
+
+  .menu-icon {
+    font-size: 2.3rem !important;
+    margin-left: 0;
+    margin-right: 0;      /* stops overflow */
+    padding-right: 0;
+    max-width: 28px;      /* keeps inside screen */
+  }
+
+  /* Ensure no overflow */
+  .header * {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* Extra Ultra-small screens (below 300px) */
+@media (max-width: 300px) {
+
+  .header {
+    padding: 1.2rem 3%;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .toggle-dark {
+    gap: 0.8rem;
+  }
+
+  .menu-icon {
+    font-size: 2rem !important;
+    max-width: 24px;
+  }
+
+}

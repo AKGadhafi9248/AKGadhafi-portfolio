@@ -1,0 +1,34 @@
+<template>
+  <!-- Temporary debug buttons -->
+  <!-- <div class="debug-buttons" style="position: fixed; top: 10px; right: 10px; z-index: 10000; background: white; padding: 10px; border: 2px solid red;">
+    <button onclick={forceUpdateBackground} style="display: block; margin: 5px;">Force Update BG</button>
+    <button onclick={toggleThemeTest} style="display: block; margin: 5px;">Toggle Theme</button>
+    <button onclick={checkStaticResources} style="display: block; margin: 5px;">Check Resources</button>
+    <div style="font-size: 12px; margin-top: 5px;">
+      Current Theme: <strong>{currentThemeText}</strong>
+    </div>
+  </div> -->
+
+  <section class="mypath-section">
+    <div class="story-header">
+      <h1>Journey of Learning</h1>
+      <p class="story-text">❝{cloudSubtitle}❞</p>
+    </div>
+
+    <div class="timeline">
+      <template if:true={journeyData}>
+        <template for:each={journeyData} for:item="item">
+          <div key={item.id} class="cloud">
+            <div class="cloud-text">
+              <h3>{item.medium}</h3>
+              <h2>({item.detail})</h2>
+              <p class="medium-line">{item.year} | Percentage: {item.standard}</p>
+              <p class="small-line">{item.place}</p>
+              <p class="desc-line">{item.institution}</p>
+            </div>
+          </div>
+        </template>
+      </template>
+    </div>
+  </section>
+</template>

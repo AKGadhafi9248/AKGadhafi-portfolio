@@ -1,0 +1,89 @@
+<template>
+  <div class="overall-component">
+    <header class="header">
+      <a href="#home" class="logo"> AKG<span>adhafi</span> </a>
+      <div class="toggle-dark">
+        <div class="dark-light" onclick={handleToggle}>
+          <i class="bx bx-sun sun"></i>
+          <i class="bx bx-moon moon"></i>
+        </div>
+        <i class="menu-icon bx bx-cloud" onclick={toggleMenu}></i>
+      </div>
+      <nav class="nav desktop-nav">
+        <button
+          type="button"
+          data-target="home"
+          class="active"
+          onclick={scrollToSection}
+        >
+          Home
+        </button>
+        <button type="button" data-target="journey" onclick={scrollToSection}>
+          Academics<span>⭐</span>
+        </button>
+        <button type="button" data-target="projects" onclick={scrollToSection}>
+          Builds
+        </button>
+        <button type="button" data-target="experience" onclick={scrollToSection}>
+          Experience
+        </button>
+        <div class="main-dark">
+          <div class="dark-light" onclick={handleToggle}>
+            <i class="bx bx-sun sun"></i>
+            <i class="bx bx-moon moon"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile View -->
+    <div class="menu">
+      <div class="logo-toggle">
+        <a class="logo">AKG<span>adhafi</span></a>
+        <i class="bx bx-x sidebarClose" onclick={toggleMenu}></i>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a data-target="home" class="active" onclick={scrollToSection}
+            >Home</a
+          >
+        </li>
+        <li>
+          <a data-target="journey" onclick={scrollToSection}
+            >Academics<span>⭐</span></a
+          >
+        </li>
+        <li><a data-target="projects" onclick={scrollToSection}>Builds</a></li>
+        <li><a data-target="experience" onclick={scrollToSection}>Experience</a></li>
+      </ul>
+    </div>
+    <div class="menu-overlay" onclick={toggleMenu}></div>
+
+    <c-section-home
+      data-section="home"
+      onscrolltoskillset={handleScrollToSkillSet}
+      onscrolltoconnect={scrollToConnectSection}
+      is-dark-theme={isDarkMode}
+    ></c-section-home>
+    <c-section-journey
+      data-section="journey"
+      is-dark-theme={isDarkMode}
+    ></c-section-journey>
+    <c-section-projects></c-section-projects>
+    <c-shuffling-effect
+      data-section="projects"
+      is-dark-theme={isDarkMode}
+    ></c-shuffling-effect>
+    <c-section-experience
+      data-section="experience"
+      is-dark-theme={isDarkMode}
+    ></c-section-experience>
+    <div id="skillSetSection">
+      <c-skill-set is-dark-theme={isDarkMode}></c-skill-set>
+    </div> 
+
+    <c-section-connect data-section="connect" is-dark-theme={isDarkMode}></c-section-connect>
+    <c-footer-section is-dark-theme={isDarkMode}></c-footer-section> 
+
+  </div>
+</template>

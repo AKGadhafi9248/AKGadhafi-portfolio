@@ -1,0 +1,6 @@
+<aura:component access="GLOBAL">
+    <div class="THIS aura-card">
+        <h1>🔥 Aura Test Card</h1>
+        <p>This is a simple Aura component working!</p>
+    </div>
+</aura:component>

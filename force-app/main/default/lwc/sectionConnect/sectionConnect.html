@@ -1,0 +1,91 @@
+<template>
+
+    <!-- 📝 FORM -->
+    <template if:false={isSubmitted}>
+        <div class="contact-container">
+
+            <h2 class="header">✨ Get in Touch</h2>
+
+            <lightning-input
+                type="text"
+                label="Your Name"
+                data-field="name"
+                value={name}
+                onchange={handleChange}>
+            </lightning-input>
+
+            <lightning-input
+                type="email"
+                label="Your Email"
+                data-field="email"
+                value={email}
+                onchange={handleChange}>
+            </lightning-input>
+
+            <lightning-textarea
+                label="Message"
+                data-field="message"
+                value={message}
+                onchange={handleChange}>
+            </lightning-textarea>
+
+            <lightning-input
+                type="checkbox"
+                label="Do you want my resume?"
+                data-field="includeResume"
+                checked={includeResume}
+                onchange={handleChange}>
+            </lightning-input>
+
+            <div class="btn-row">
+    <button class="send-btn"
+            onclick={sendEmail}
+            disabled={isLoading}>
+        <template if:false={isLoading}>
+            Send Message
+        </template>
+
+        <template if:true={isLoading}>
+            <lightning-spinner
+                alternative-text="Sending"
+                size="small">
+            </lightning-spinner>
+        </template>
+    </button>
+</div>
+        </div>
+    </template>
+
+    <!-- ✅ SUCCESS SCREEN -->
+    <!-- ✅ SUCCESS SCREEN -->
+<template if:true={isSubmitted}>
+    <div class="contact-container">
+        <h2 class="header">✅ Message Sent!</h2>
+
+        <p class="success-text">
+            Thank You For Reaching Out 💜 <br/><br/>
+        </p>
+
+        <!-- 🎯 SHOW ONLY IF RESUME WAS REQUESTED -->
+        <template if:true={resumeRequested}>
+            <p class="email-info">
+
+                I have Attached My Resume in the Mail as You Requested.
+            </p>
+        </template>
+
+        <p class="resume-info">
+
+            📧 Please Check Your Inbox or <b>Spam</b> Folder.
+        </p>
+
+        <div class="btn-row" style="margin-top:1.5rem;">
+            <button class="send-btn" onclick={returnToForm}>
+                Return To Form
+            </button>
+        </div>
+    </div>
+</template>
+
+
+</template>

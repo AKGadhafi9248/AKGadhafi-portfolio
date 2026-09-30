@@ -1,0 +1,510 @@
+/* ======================
+   THEME VARIABLES
+====================== */
+/* :host {
+  --second-bg-color: #f6f5fc;
+  --bg-color: #eceafc;
+  --text-color: #333444;
+  --main-color: #8b5cf6;
+  --accent-color: #c4b5fd;
+  --border-color: #d1d5db;
+  --glow-color-light: rgba(139, 92, 246, 0.85);
+  --iam-color: #9c27b0;
+  --p-color: rgba(51, 52, 68, 0.8);
+  --gold-color: #8b5cf6;
+  --m-color: var(--main-color);
+  --h-color: #2B0054;
+}
+
+:host(.dark-mode) {
+  --second-bg-color: #1E1E1E;
+  --bg-color: #121212;
+  --text-color: #E0E0E0;
+  --main-color: #20B2AA;
+  --accent-color: #64FFDA;
+  --border-color: #64FFDA;
+  --glow-color-light: rgba(100, 255, 218, 0.5);
+  --iam-color: #20b2aa;
+  --p-color: rgba(224, 224, 224, 0.8);
+  --gold-color: #64FFDA;
+  --h-color: #14B1FF;
+  --m-color: var(--main-color);
+} */
+.projects-section > h1 {
+    font-size: 3rem;
+    font-family: Playfair Display, serif;
+    font-weight: 700;
+    text-align:center;
+    background: linear-gradient(to right, var(--text-primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+/* =========================
+   MAIN SECTION
+========================= */
+.projects-section { 
+  padding: 3rem 1rem; 
+  background: var(--bg-color);
+}
+body{
+  background-color: var(--bg-color);
+}
+
+/* .section-title { 
+  text-align: center; 
+  font-size: 2rem; 
+  margin-bottom: 2rem; 
+  color: var(--main-color);
+  font-weight: 700; 
+  text-transform: uppercase; 
+} */
+ .section-title {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 2rem; 
+    background: linear-gradient(to right, var(--main-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index:100;
+}
+.story-text {
+    font-weight: 600;
+    font-size: 1.3rem;
+    opacity: 0.9;
+    text-align: center;
+    transition: opacity 0.4s ease;
+    font-family: Lato Regular, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--h-color);
+    line-height: 1.6;
+}
+/* =========================
+   CARD GRID
+========================= */
+.card-container { 
+  display: flex; 
+  justify-content: center; 
+  flex-wrap: wrap; 
+  gap: 2rem; 
+}
+
+.project-wrapper { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 1rem; 
+}
+
+/* =========================
+   SQUARE CARDS
+========================= */
+.card { 
+  width: 280px; 
+  height: 280px;
+  position: relative; 
+  overflow: hidden; 
+  border-radius: 12px; 
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); 
+  /* transition: transform 0.4s ease, box-shadow 0.4s ease; */
+  background-size: cover; 
+  background-position: center;
+  background-color: var(--bg-color);
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+  /* position: relative; */
+}
+
+.card:hover { 
+  /* transform: scale(1.05);  */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); 
+  cursor: pointer; 
+  box-shadow: 0 0 18px var(--h-color), 
+              0 0 28px rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+}
+
+/* =========================
+   INTRO INSIDE CARD
+========================= */
+.intro { 
+  position: absolute; 
+  bottom: 0; 
+  width: 100%; 
+  height: 80px; 
+  background: rgba(0, 0, 0, 0.85); 
+  color: var(--text-color); 
+  transition: all 0.4s ease; 
+  padding: 15px; 
+  box-sizing: border-box; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+}
+/* =======================================================
+   PREMIUM GOLD NEW TAG – Golden BG + Black Text
+======================================================= */
+.new-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  z-index: 100;
+
+  /* Black text (fixed, always visible) */
+  color: #000;
+
+  /* GOLD animated background */
+  background: linear-gradient(
+      90deg,
+      #FFD700,
+      #FFEA70,
+      #FFC800,
+      #FFD700,
+      #FFEA70,
+      #FFC800
+  );
+  background-size: 300% 300%;
+  animation: gold-bg-move 3.5s linear infinite, gold-float 3s ease-in-out infinite;
+
+  /* Gold border + glow */
+  border: 1px solid #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* Background shimmer animation */
+@keyframes gold-bg-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Gentle floating */
+@keyframes gold-float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0px); }
+}
+
+
+/* .intro h1 { 
+  font-size: 18px;
+  color: var(--main-color);
+  margin: 0; 
+} */
+.intro h1 { 
+  font-size: 18px; 
+  margin: 0; 
+  margin-top:50px;
+  color: white;
+} 
+.intro p { 
+  font-size: 14px; 
+  margin-top: 10px; 
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity 0.4s ease; 
+  color:white;
+}
+
+.logos { 
+  display: flex; 
+  justify-content: center; 
+  gap: 8px; 
+  margin: 10px 0; 
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity 0.4s ease; 
+}
+
+.tech-logo { 
+  width: 24px; 
+  height: 24px; 
+  object-fit: contain; 
+}
+
+/* =========================
+   ARROW BUTTON
+========================= */
+.arrow-container { 
+  display: flex; 
+  justify-content: center; 
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity 0.4s ease; 
+}
+
+.arrow { 
+  width: 30px; 
+  height: 30px; 
+  background: var(--main-color);
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  color: white; 
+  font-size: 14px; 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
+}
+
+.arrow:hover { 
+  transform: scale(1.1); 
+  background: var(--accent-color); 
+}
+
+.arrow.open { 
+  transform: rotate(180deg); 
+}
+
+/* Hover show */
+.card:hover .intro { 
+  height: 180px; 
+  background: rgba(0, 0, 0, 0.85); 
+}
+
+.card:hover .intro p, 
+.card:hover .logos, 
+.card:hover .arrow-container { 
+  opacity: 1; 
+  visibility: visible; 
+}
+
+/* =========================
+   DETAILS PANEL BELOW CARD
+========================= */
+.details-panel { 
+  width: 280px; 
+  max-height: 0; 
+  overflow: hidden; 
+  background: var(--bg-color);
+  border-radius: 12px; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+  transition: all 0.5s ease; 
+  opacity: 0; 
+  transform: translateY(-10px); 
+  border: 1px solid var(--border-color);
+}
+
+.details-panel.open { 
+  max-height: 300px; 
+  opacity: 1; 
+  transform: translateY(0); 
+  padding: 20px; 
+}
+
+.details-content h3 { 
+  color: var(--main-color); 
+  margin-bottom: 15px; 
+  font-size: 18px; 
+  text-align: center; 
+}
+
+.details-content p { 
+  color: var(--text-color); 
+  line-height: 1.6; 
+  margin-bottom: 20px; 
+  font-size: 14px; 
+  text-align: center; 
+}
+
+.demo-links { 
+  display: flex; 
+  gap: 12px; 
+  justify-content: center; 
+  flex-wrap: wrap; 
+}
+
+.demo-btn { 
+  padding: 10px 20px; 
+  border-radius: 25px; 
+  text-decoration: none; 
+  font-weight: 600; 
+  font-size: 14px; 
+  transition: all 0.3s ease; 
+  text-align: center; 
+  min-width: 120px; 
+  
+  /* New gradiant-btn styling */
+  display: inline-block;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  border: 2px solid var(--main-color);
+}
+
+.demo-btn:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  /* Additional hover effects from gradiant-btn */
+  transform: scale(1.03);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  box-shadow: 0 0 20px var(--main-color);
+}
+
+/* back-btn with gradiant-btn2 styling */
+.back-btn { 
+  margin-top: 10px; 
+  padding: 8px 18px; 
+  border-radius: 10px; 
+  border: none; 
+  background: var(--main-color);
+  color: white; 
+  cursor: pointer; 
+  
+  /* New gradiant-btn2 styling */
+  display: inline-block;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 2px solid var(--main-color);
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.03);
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  box-shadow: 0 0 20px var(--main-color);
+}
+
+
+/* =========================
+   CLOUD VIEW STYLE
+========================= */
+/* .cloud-view { 
+  width: 280px; 
+  position: relative; 
+  text-align: center; 
+}
+
+.cloud-img { 
+  width: 100%; 
+  border-radius: 12px; 
+}
+
+.typing-box { 
+  position: absolute; 
+  top: 20px; 
+  width: 100%; 
+  padding: 10px; 
+}
+
+.typing-text { 
+  font-size: 14px; 
+  font-weight: 600; 
+  background: linear-gradient(to right, var(--type-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: pre-line; 
+}
+
+.cloud-links { 
+  
+  position: absolute; 
+  bottom: 40px; 
+  width: 100%; 
+} */
+.cloud-view {
+    width: 280px;
+    position: relative; 
+    text-align: center;
+}
+
+/* Cloud image stays at bottom */
+.cloud-img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* FIXED position — stays on cloud image */
+.typing-box {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding-bottom: 10px;  /* dynamic safety gap */
+}
+
+.typing-text {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+/* Buttons follow normal flow → move down automatically */
+.cloud-links {
+    margin-top: auto;     /* buttons follow content naturally */
+    padding-top: 10px;    /* small fixed safe space */
+    position: relative;
+    z-index: 5;
+}
+
+
+/* Back button also respects flow */
+.back-btn {
+    margin-top: 12px;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .card, 
+  .cloud-view { 
+    width: 250px; 
+  }
+
+  .details-panel { 
+    width: 250px; 
+  }
+  .story-text {
+        font-size: 0.9rem;
+        max-width: 90%;
+        line-height: 1.5;
+    }
+
+  .demo-links { 
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .demo-btn, 
+  .github-btn { 
+    width: 200px; 
+  }
+  .intro h1 { 
+  font-size: 15px; 
+  margin: 0; 
+  margin-top:50px;
+  color: white;
+} 
+.intro p { 
+  font-size: 12px; 
+  margin-top: 10px; 
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity 0.4s ease; 
+  color:white;
+}
+/* Fix: ensure spacing between content and buttons */
+/* universal safe spacing before buttons */
+.cloud-view .typing-box,
+.cloud-view .content,
+.cloud-view .cloud-text,
+.cloud-view .details-panel.open {
+    margin-bottom: 24px !important;
+}
+
+}
